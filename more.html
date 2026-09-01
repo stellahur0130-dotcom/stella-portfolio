@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>More About Me — Stella Hur</title>
+<meta name="description" content="Stella Hur — B2B Marketing Specialist.">
+<link rel="stylesheet" href="css/style.css">
+<!--
+  FONTS: Montserrat (name / tagline / primary nav) and Poppins
+  (everything else — body copy, project titles, secondary nav,
+  buttons). Both are free, loaded via Google Fonts in style.css —
+  no license needed. See the top of style.css for the full note.
+-->
+</head>
+<body>
+  <div class="page">
+    <div class="content-max">
+      <header class="hero">
+      <h1 class="hero-name">Jeongwoo<br>Stella<br>Hur</h1>
+      <div class="hero-portrait-wrap">
+        <div class="hero-portrait">
+          <img src="assets/images/portrait.jpg" alt="Portrait of Stella Hur">
+        </div>
+      </div>
+      <div class="hero-tagline">
+        <p>Technical products. Creative marketing.<br>Everything in between.</p>
+      </div>
+    </header>
+      <nav class="nav-primary">
+      <a class="" href="index.html">Work</a><a class="" href="about.html">About</a><a class="" href="resume.html">Resume</a><a class="active" href="more.html">More About Me :)</a>
+    </nav>
+      <!--
+        Everything below is the region the client-side router
+        swaps in place (see js/main.js) so switching between Work /
+        About / Resume / More About Me feels like an iOS tab switch
+        instead of a full page reload — hero + primary nav never
+        remount. Each file is still a complete, valid standalone
+        page for direct loads, no-JS, and SEO.
+      -->
+      <div id="app-content" data-page="more.html">
+        
+        <div class="content-panel more-panel">
+      <div class="more-columns">
+        <div class="more-image-grid">
+        <div class="more-card"><img src="assets/images/more/card-1.jpg" alt="" loading="lazy"></div>
+        <div class="more-card"><img src="assets/images/more/card-2.jpg" alt="" loading="lazy"></div>
+        <div class="more-card"><div class="video-embed"><iframe src="https://player.vimeo.com/video/1222911482" title="More About Me video" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+        <div class="more-card"><img src="assets/images/more/card-4.jpg" alt="" loading="lazy"></div>
+        <div class="more-card"><div class="video-embed"><iframe src="https://player.vimeo.com/video/1222911482" title="More About Me video" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+        <div class="more-card"><img src="assets/images/more/card-6.jpg" alt="" loading="lazy"></div>
+        <div class="more-card"><img src="assets/images/more/card-7.jpg" alt="" loading="lazy"></div>
+      </div>
+        <div class="more-text">
+        <div class="more-text-block"><h4>Growing Up in Colombia</h4><p>[Placeholder — a few sentences on growing up in Colombia, and how it shaped your relationship to language and culture. Native in English, Spanish, and Korean.]</p></div>
+        <div class="more-text-block"><h4>Off the Clock</h4><p>[Placeholder — what you actually do on weekends. Specific, not generic.]</p></div>
+        <div class="more-text-block"><h4>Currently Watching</h4><p>[Placeholder — a short, specific list of shows/movies.]</p></div>
+        <div class="more-text-block"><h4>Favorite AI Videos</h4><p>[Placeholder — 2–4 specific AI-generated videos or channels you love, with a line on why.]</p></div>
+        <div class="more-text-block"><h4>Design References</h4><p>[Placeholder — a short list of sites/designers you keep going back to.]</p></div>
+      </div>
+      </div>
+    </div>
+        <footer class="site-footer">
+      <span>&copy; 2026 Stella Hur</span>
+      <span><a href="mailto:stellahur0130@gmail.com">stellahur0130@gmail.com</a> &nbsp;&middot;&nbsp; <a href="https://linkedin.com/in/jeongwoo-stella-hur" target="_blank" rel="noopener">LinkedIn</a></span>
+    </footer>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

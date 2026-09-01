@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work — Stella Hur</title>
+<meta name="description" content="Stella Hur — B2B Marketing Specialist.">
+<link rel="stylesheet" href="css/style.css">
+<!--
+  FONTS: Montserrat (name / tagline / primary nav) and Poppins
+  (everything else — body copy, project titles, secondary nav,
+  buttons). Both are free, loaded via Google Fonts in style.css —
+  no license needed. See the top of style.css for the full note.
+-->
+</head>
+<body>
+  <div class="page">
+    <div class="content-max">
+      <header class="hero">
+      <h1 class="hero-name">Jeongwoo<br>Stella<br>Hur</h1>
+      <div class="hero-portrait-wrap">
+        <div class="hero-portrait">
+          <img src="assets/images/portrait.jpg" alt="Portrait of Stella Hur">
+        </div>
+      </div>
+      <div class="hero-tagline">
+        <p>Technical products. Creative marketing.<br>Everything in between.</p>
+      </div>
+    </header>
+      <nav class="nav-primary">
+      <a class="active" href="index.html">Work</a><a class="" href="about.html">About</a><a class="" href="resume.html">Resume</a><a class="" href="more.html">More About Me :)</a>
+    </nav>
+      <!--
+        Everything below is the region the client-side router
+        swaps in place (see js/main.js) so switching between Work /
+        About / Resume / More About Me feels like an iOS tab switch
+        instead of a full page reload — hero + primary nav never
+        remount. Each file is still a complete, valid standalone
+        page for direct loads, no-JS, and SEO.
+      -->
+      <div id="app-content" data-page="index.html">
+        
+        <div class="work-panel">
+      <nav class="nav-secondary">
+      <button class="active" data-filter="all"><span>All</span></button>
+      <button data-filter="technical-marketing"><span class="idx">01</span><span>Technical Marketing</span></button>
+      <button data-filter="product-launches-campaigns"><span class="idx">02</span><span>Product Launches & Campaigns</span></button>
+      <button data-filter="graphic-design"><span class="idx">03</span><span>Graphic Design</span></button>
+      <button data-filter="video-production"><span class="idx">04</span><span>Video Production</span></button>
+      <button data-filter="events-tradeshows"><span class="idx">05</span><span>Events & Trade Shows</span></button>
+      <button data-filter="web-design"><span class="idx">06</span><span>Web Design</span></button>
+    </nav>
+      <div class="work-overview">
+      <button class="overview-card" data-goto="technical-marketing">
+        <div class="overview-thumb">
+          <img src="assets/images/work/overview/technical-marketing.jpg" alt="Technical Marketing" loading="lazy">
+        </div>
+        <div class="overview-title">01 Technical Marketing</div>
+      </button>
+      <button class="overview-card" data-goto="product-launches-campaigns">
+        <div class="overview-thumb">
+          <img src="assets/images/work/overview/product-launches-campaigns.jpg" alt="Product Launches & Campaigns" loading="lazy">
+        </div>
+        <div class="overview-title">02 Product Launches & Campaigns</div>
+      </button>
+      <button class="overview-card" data-goto="graphic-design">
+        <div class="overview-thumb">
+          <img src="assets/images/work/overview/graphic-design.jpg" alt="Graphic Design" loading="lazy">
+        </div>
+        <div class="overview-title">03 Graphic Design</div>
+      </button>
+      <button class="overview-card" data-goto="video-production">
+        <div class="overview-thumb">
+          <img src="assets/images/work/overview/video-production.jpg" alt="Video Production" loading="lazy">
+        </div>
+        <div class="overview-title">04 Video Production</div>
+      </button>
+      <button class="overview-card" data-goto="events-tradeshows">
+        <div class="overview-thumb">
+          <img src="assets/images/work/overview/events-tradeshows.jpg" alt="Events & Trade Shows" loading="lazy">
+        </div>
+        <div class="overview-title">05 Events & Trade Shows</div>
+      </button>
+      <button class="overview-card" data-goto="web-design">
+        <div class="overview-thumb">
+          <img src="assets/images/work/overview/web-design.jpg" alt="Web Design" loading="lazy">
+        </div>
+        <div class="overview-title">06 Web Design</div>
+      </button>
+    </div>
+<div class="category-panel is-hidden" data-category="technical-marketing">
+      <div class="category-project">
+        <div class="proj-image"><img src="assets/images/work/technical-marketing/technical-datasheet.jpg" alt="Technical Datasheet" loading="lazy"></div>
+        <div class="proj-title">Technical Datasheet</div>
+        <div class="proj-desc">Product datasheets translating complex specs into clear, accessible technical documentation.</div>
+        
+      </div>
+      <div class="category-project">
+        <div class="proj-image"><img src="assets/images/work/technical-marketing/product-brochures.jpg" alt="Product Brochures & One-Pagers" loading="lazy"></div>
+        <div class="proj-title">Product Brochures & One-Pagers</div>
+        <div class="proj-desc">Concise brochures and one-pagers built to introduce products and highlight key differentiators at a glance.</div>
+        
+      </div>
+      <div class="category-project">
+        <div class="proj-image"><img src="assets/images/work/technical-marketing/white-papers.jpg" alt="White Papers & Reports" loading="lazy"></div>
+        <div class="proj-title">White Papers & Reports</div>
+        <div class="proj-desc">Long-form white papers and reports distilling technical and market research into digestible insights.</div>
+        
+      </div>
+    </div>
+<div class="category-panel is-hidden" data-category="product-launches-campaigns">
+      <div class="category-project">
+        <div class="proj-image"><img src="assets/images/work/product-launches/press-releases.jpg" alt="Press Releases" loading="lazy"></div>
+        <div class="proj-title">Press Releases</div>
+        <div class="proj-desc">Press coverage secured with outlets including The Wall Street Journal and The New York Times, coordinated with photographers and the internal team.</div>
+        
+      </div>
+      <div class="category-project">
+        <div class="proj-image"><img src="assets/images/work/product-launches/new-product-introductions.jpg" alt="New Product Introductions" loading="lazy"></div>
+        <div class="proj-title">New Product Introductions</div>
+        <div class="proj-desc">NPI communications and press releases supporting new product rollouts.</div>
+        
+      </div>
+      <div class="category-project">
+        <div class="proj-image"><div class="video-embed"><iframe src="https://player.vimeo.com/video/1222911482" title="Product Launch Productions" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+        <div class="proj-title">Product Launch Productions</div>
+        <div class="proj-desc">Teaser videos and launch productions built to generate excitement ahead of product releases.</div>
+        
+      </div>
+    </div>
+<div class="category-panel is-hidden" data-category="graphic-design">
+      <div class="category-project">
+        <div class="proj-image"><img src="assets/images/work/graphic-design/banner-ads.jpg" alt="Banner Ads" loading="lazy"></div>
+        <div class="proj-title">Banner Ads</div>
+        <div class="proj-desc">Press, social, and email banner ads designed to capture attention and drive action.</div>
+        
+      </div>
+      <div class="category-project">
+        <div class="proj-image"><img src="assets/images/work/graphic-design/live-event-graphics.jpg" alt="Live Event Graphics" loading="lazy"></div>
+        <div class="proj-title">Live Event Graphics</div>
+        <div class="proj-desc">Standalone marketing graphics for live events, trade shows, and expos.</div>
+        
+      </div>
+      <div class="category-project">
+        <div class="proj-image"><img src="assets/images/work/graphic-design/internal-magazine-covers.jpg" alt="Internal Magazine Covers" loading="lazy"></div>
+        <div class="proj-title">Internal Magazine Covers</div>
+        <div class="proj-desc">Cover design and art direction for internal company magazines.</div>
+        
+      </div>
+    </div>
+<div class="category-panel is-hidden" data-category="video-production">
+      <div class="category-project">
+        <div class="proj-media-grid" style="grid-template-columns: repeat(2, 1fr);"><div class="proj-media-grid-tile"><div class="video-embed"><iframe src="https://player.vimeo.com/video/1222911482" title="Field & Site Production" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div><div class="proj-media-grid-tile"><div class="video-embed"><iframe src="https://player.vimeo.com/video/1222911482" title="Field & Site Production" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div><div class="proj-media-grid-tile"><div class="video-embed"><iframe src="https://player.vimeo.com/video/1222911482" title="Field & Site Production" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div><div class="proj-media-grid-tile"><div class="video-embed"><iframe src="https://player.vimeo.com/video/1222911482" title="Field & Site Production" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div></div>
+        <div class="proj-title">Field & Site Production</div>
+        <div class="proj-desc">On-location product and site video — manufacturing in India, field-testing, GoPro road testing, and testing in Jaisalmer.</div>
+        
+      </div>
+      <div class="category-project">
+        <div class="proj-image"><div class="video-embed"><iframe src="https://player.vimeo.com/video/1222911482" title="Edited Productions" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+        <div class="proj-title">Edited Productions</div>
+        <div class="proj-desc">Post-production and editing work.</div>
+        
+      </div>
+      <div class="category-project">
+        <div class="proj-media-grid" style="grid-template-columns: repeat(2, 1fr);"><div class="proj-media-grid-tile"><div class="video-embed"><iframe src="https://player.vimeo.com/video/1222911482" title="3D Renders & Animation" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div><div class="proj-media-grid-tile"><div class="video-embed"><iframe src="https://player.vimeo.com/video/1222911482" title="3D Renders & Animation" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div></div>
+        <div class="proj-title">3D Renders & Animation</div>
+        <div class="proj-desc">3D rendering and animation work supporting product storytelling.</div>
+        
+      </div>
+    </div>
+<div class="category-panel is-hidden" data-category="events-tradeshows">
+      <div class="category-project">
+        <div class="proj-image"><img src="assets/images/work/events-tradeshows/tradeshows-live-events.jpg" alt="Tradeshows & Live Events" loading="lazy"></div>
+        <div class="proj-title">Tradeshows & Live Events</div>
+        <div class="proj-desc">End-to-end trade show and event execution, spanning booth concepts and design, product displays, marketing materials, vendor coordination, logistics, and on-site support across domestic and international events.</div>
+        <ul class="list-plain"><li>G-STAR 2021 — Busan, Korea</li><li>Imagine Live Korea 2022 — Seoul, Korea</li><li>APEC 2023 — Orlando, Florida</li><li>CES 2024 — Las Vegas, Nevada</li><li>APEC 2024 — Long Beach, California</li><li>Electronica China 2024 — Shanghai, China</li><li>Elexcon 2024 — Shenzhen, China</li><li>CES 2025 — Las Vegas, Nevada</li></ul>
+      </div>
+    </div>
+<div class="category-panel is-hidden" data-category="web-design">
+      <div class="category-project">
+        <div class="proj-image"><img src="assets/images/work/web-design/conifer-website-v1.jpg" alt="Conifer Website — V1" loading="lazy"></div>
+        <div class="proj-title">Conifer Website — V1</div>
+        <div class="proj-desc">[Draft] First website build for Conifer.</div>
+        
+      </div>
+      <div class="category-project">
+        <div class="proj-image"><img src="assets/images/work/web-design/conifer-website-v2.jpg" alt="Conifer Website — V2" loading="lazy"></div>
+        <div class="proj-title">Conifer Website — V2</div>
+        <div class="proj-desc">[Draft] Second website build/redesign for Conifer.</div>
+        
+      </div>
+      <div class="category-project">
+        <div class="proj-image"><img src="assets/images/work/web-design/independent-web-projects.jpg" alt="Independent Web Projects" loading="lazy"></div>
+        <div class="proj-title">Independent Web Projects</div>
+        <div class="proj-desc">Two additional independent web design projects.</div>
+        
+      </div>
+    </div>
+      <p class="disclaimer">* All information and content presented in this portfolio are publicly available and have been officially released by the respective companies.</p>
+    </div>
+        <footer class="site-footer">
+      <span>&copy; 2026 Stella Hur</span>
+      <span><a href="mailto:stellahur0130@gmail.com">stellahur0130@gmail.com</a> &nbsp;&middot;&nbsp; <a href="https://linkedin.com/in/jeongwoo-stella-hur" target="_blank" rel="noopener">LinkedIn</a></span>
+    </footer>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

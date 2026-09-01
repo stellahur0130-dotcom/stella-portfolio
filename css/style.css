@@ -1,0 +1,858 @@
+/* ============================================================
+   STELLA HUR — PORTFOLIO
+   Design system v3: "Hero + Pill Nav" foundation
+   Structure only — content/copy to be filled in later.
+
+   FONT NOTE: two free Google Fonts, no license needed for either.
+   --font-display (Montserrat) — the name, the one-line tagline,
+     and the primary nav (Work / About / Resume / More About Me).
+   --font-body (Poppins) — everything else: project titles, all
+     body copy, secondary nav (category filters), and buttons
+     like the resume download link.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+:root {
+  /* ---- Color ---- */
+  --bg: #F3F3F2;
+  --surface: #FFFFFF;
+  --surface-soft: #EAEAE8;
+  --panel: #FAFAF8;
+  --ink: #101014;
+  --ink-soft: #4A4A4E;
+  --gray: #78787C;
+  --gray-light: #A6A6A8;
+  --line: #DEDEDB;
+  --line-strong: #CCCCC7;
+
+  --accent: #2457E6;
+  --accent-ink: #FFFFFF;
+
+  --navy: #171717;      /* inactive primary-nav pill */
+  --navy-ink: #F2F3F6;  /* inactive primary-nav pill text */
+
+  /* ---- Type ---- */
+  --font-display: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* ---- Layout ----
+     The content column is a fixed, narrow width that CENTERS
+     itself on the page — this (not just side padding) is what
+     produces the large, even margins on wide viewports. --page-pad
+     is only a floor so content never touches the edge on narrower
+     screens before the centering takes over. */
+  --page-pad: clamp(32px, 8vw, 140px);
+  --content-max: 740px;
+
+  /* ---- Shape ---- */
+  --r-lg: 28px;
+  --r-md: 18px;
+  --r-pill: 999px;
+
+  /* ---- Depth ---- */
+  --shadow-xs: 0 1px 4px rgba(16, 16, 20, 0.05);
+  --shadow-sm: 0 2px 12px rgba(16, 16, 20, 0.06);
+  --shadow-md: 0 16px 40px rgba(16, 16, 20, 0.10);
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font-family: var(--font-body); }
+
+::selection { background: var(--accent); color: #fff; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   PAGE SHELL
+   ============================================================ */
+
+.page {
+  width: 100%;
+  padding: clamp(32px, 4.5vw, 64px) var(--page-pad) 120px;
+}
+
+.content-max {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+/* ============================================================
+   HERO — name lockup + portrait
+   (persistent across every page)
+   ============================================================ */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  column-gap: 32px;
+  row-gap: 0;
+  margin-bottom: 100px;
+}
+
+.hero-name {
+  grid-column: 1;
+  grid-row: 1;
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.hero-tagline {
+  grid-column: 1;
+  grid-row: 2;
+  max-width: 460px;
+  align-self: end;
+}
+
+.hero-tagline p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 16.5px;
+  font-weight: 500;
+  font-style: normal;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.hero-portrait-wrap {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: start;
+  justify-self: start;
+  position: relative;
+  width: clamp(160px, 16vw, 210px);
+  flex-shrink: 0;
+}
+
+.hero-portrait-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 14px -14px -14px 14px;
+  background: var(--surface-soft);
+  border-radius: var(--r-md);
+  z-index: 0;
+}
+
+.hero-portrait {
+  position: relative;
+  z-index: 1;
+  background: var(--surface);
+  padding: 8px;
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-md);
+}
+
+.hero-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 440px;
+  border-radius: calc(var(--r-md) - 8px);
+}
+
+@media (max-width: 760px) {
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    row-gap: 24px;
+  }
+  .hero-name { grid-column: 1; grid-row: 1; }
+  .hero-portrait-wrap { grid-column: 1; grid-row: 2; justify-self: start; width: 160px; }
+  .hero-tagline { grid-column: 1; grid-row: 3; margin-top: 0; }
+}
+
+/* ============================================================
+   PRIMARY NAV — strongest visual prominence
+   Dark navy pills; active page = accent blue
+   ============================================================ */
+
+.nav-primary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.nav-primary a {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: var(--r-pill);
+  background: var(--navy);
+  color: var(--navy-ink);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.nav-primary a:hover { transform: translateY(-1px); }
+
+.nav-primary a.active {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* ============================================================
+   SECONDARY NAV — work filters
+   Deliberately NOT another set of pill buttons — a quiet,
+   numbered text row. Wraps to a second line so all categories
+   stay visible at once rather than requiring a scroll.
+   ============================================================ */
+
+.nav-secondary {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 12px;
+  column-gap: 28px;
+  margin: 18px 0 72px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.nav-secondary button {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 12.5px;
+  font-weight: 400;
+  color: var(--gray);
+  cursor: pointer;
+  transition: color 0.2s var(--ease);
+}
+
+.nav-secondary button .idx {
+  font-size: 10.5px;
+  color: var(--gray-light);
+  font-variant-numeric: tabular-nums;
+  transition: color 0.2s var(--ease);
+}
+
+.nav-secondary button:hover { color: var(--ink); }
+.nav-secondary button:hover .idx { color: var(--gray); }
+
+.nav-secondary button.active { color: var(--accent); font-weight: 500; }
+.nav-secondary button.active .idx { color: var(--accent); }
+
+@media (max-width: 500px) {
+  .nav-secondary { column-gap: 18px; row-gap: 10px; }
+}
+
+/* ============================================================
+   WORK PANEL — one persistent rounded surface that holds the
+   secondary nav, the disclaimer, and whichever content mode is
+   active. This is the fix for "the second nav should feel
+   connected to the page, not floating above disconnected
+   content" — nav becomes the control strip at the top of a
+   card; content is just whatever's currently inside it.
+   ============================================================ */
+
+.work-panel {
+  background: var(--panel);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  padding: clamp(26px, 3.5vw, 40px);
+}
+
+.work-panel .nav-secondary {
+  margin: 0 0 32px;
+  padding: 0 0 20px;
+  border: none;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.work-panel .disclaimer {
+  margin: 40px 0 0;
+  padding: 24px 0 0;
+  border: none;
+  border-top: 1px solid var(--line-strong);
+  max-width: none;
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--gray-light);
+}
+
+/* ---- Mode A: category overview grid ---- */
+
+.work-overview {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(32px, 4vw, 48px) clamp(24px, 3vw, 36px);
+}
+
+.work-overview.is-hidden { display: none; }
+
+.overview-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  cursor: pointer;
+  /* Reset native <button> chrome — this is what was showing up
+     as an unwanted border/background box around each card. */
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+}
+
+.overview-thumb {
+  width: 100%;
+  padding: 8px;
+  border-radius: var(--r-md);
+  background: var(--surface);
+  box-shadow: var(--shadow-xs);
+  transition: box-shadow 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.overview-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  border-radius: calc(var(--r-md) - 8px);
+}
+
+.overview-thumb .placeholder-mark {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-light);
+}
+
+.overview-card:hover .overview-thumb {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.overview-title {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+
+@media (max-width: 620px) {
+  .work-overview { grid-template-columns: 1fr; }
+}
+
+/* ---- Mode B: one category's 3 stacked projects.
+   No longer its own boxed panel — it's nested directly inside
+   .work-panel now, so it inherits that surface for free. ---- */
+
+.category-panel.is-hidden { display: none; }
+
+.category-project + .category-project {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line-strong);
+}
+
+.category-project .proj-image {
+  width: 100%;
+  padding: 8px;
+  background: var(--surface);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-xs);
+}
+
+.category-project .proj-image img,
+.category-project .proj-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 560px;
+  border-radius: calc(var(--r-md) - 8px);
+}
+
+/* ---- Video embeds (Vimeo) ----
+   Every video slot on the site is a responsive 16:9 Vimeo
+   embed. Vimeo's own player already provides click-to-play and
+   a fullscreen button, so no custom lightbox/JS is needed —
+   this is just a standard responsive-iframe wrapper, sitting
+   inside the same padded frame used for images so video and
+   photo cards look consistent. Swap the video for a different
+   one by changing VIMEO_URL in pages.py — every slot updates
+   from one place. */
+
+.video-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: calc(var(--r-md) - 8px);
+  overflow: hidden;
+  background: #000;
+}
+
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Multi-clip grid variant — used where several separate videos
+   make more sense than one placeholder (e.g. Field & Site
+   Production's four clips, or a 2-up pair of animation renders).
+   No forced aspect-ratio: each tile sizes to its own video/image,
+   so a 2x2 grid of clips with different shapes just works. */
+.proj-media-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.proj-media-grid-tile {
+  padding: 8px;
+  background: var(--surface);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-xs);
+}
+
+.proj-media-grid-tile img,
+.proj-media-grid-tile video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  border-radius: calc(var(--r-md) - 8px);
+}
+
+@media (max-width: 500px) {
+  .proj-media-grid { grid-template-columns: 1fr !important; }
+}
+
+.category-project .proj-title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--ink);
+  margin-top: 22px;
+}
+
+.category-project .proj-desc {
+  font-size: 13.5px;
+  color: var(--gray);
+  line-height: 1.6;
+  margin-top: 6px;
+  max-width: 60ch;
+}
+
+/* Events & Trade Shows: the real trade-show list sits directly
+   under the title/description, bullets flush to the same left
+   edge as that text (not the browser-default indent). */
+.category-project .list-plain {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.category-project .list-plain li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.category-project .list-plain li::before {
+  content: '\2022';
+  position: absolute;
+  left: 0;
+  color: var(--gray-light);
+}
+
+/* ============================================================
+   GENERIC PLACEHOLDER SECTION
+   (still used on Resume / More About Me while copy is TBD)
+   ============================================================ */
+
+.placeholder-section {
+  border-top: 1px solid var(--line);
+  padding-top: 48px;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 720px;
+}
+
+.placeholder-section .ph-label {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-light);
+}
+
+.placeholder-section .ph-block {
+  border: 1px dashed var(--line);
+  border-radius: var(--r-md);
+  padding: 28px;
+  font-size: 14.5px;
+  color: var(--gray);
+  font-style: italic;
+  background: var(--surface);
+}
+
+/* ============================================================
+   ABOUT — reuses the same soft panel language as the Work page
+   for a consistent multi-page feel. Lede paragraph carries the
+   hook line; the rest is plain, readable body copy.
+   ============================================================ */
+
+.content-panel {
+  background: var(--panel);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  padding: clamp(28px, 4vw, 48px);
+  max-width: 760px;
+}
+
+.content-panel.more-panel { max-width: none; }
+
+.about-eyebrow {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-light);
+  margin-bottom: 24px;
+}
+
+.about-lede {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: clamp(19px, 2.2vw, 23px);
+  line-height: 1.5;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+  margin: 0 0 28px;
+}
+
+.about-body {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.about-body p {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+
+.about-image {
+  width: 100%;
+  padding: 8px;
+  background: var(--surface);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-xs);
+}
+
+.about-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  border-radius: calc(var(--r-md) - 8px);
+}
+
+.about-image .placeholder-mark {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-light);
+}
+
+/* ============================================================
+   RESUME — same content-panel shell as About, plus its own
+   experience/education rows, skills grid, and languages chips.
+   ============================================================ */
+
+.resume-toolbar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.resume-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--surface);
+  padding: 11px 22px;
+  border-radius: var(--r-pill);
+  box-shadow: var(--shadow-xs);
+  transition: box-shadow 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.resume-download:hover { box-shadow: var(--shadow-sm); transform: translateY(-1px); }
+
+.section-label {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-light);
+  margin: 40px 0 10px;
+}
+
+.section-label:first-of-type { margin-top: 28px; }
+
+.resume-exp-list { display: flex; flex-direction: column; }
+
+.resume-exp-row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 24px;
+  padding: 22px 0;
+}
+
+.resume-exp-row + .resume-exp-row {
+  border-top: 1px solid var(--line-strong);
+}
+
+.resume-exp-row .exp-date {
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+  color: var(--gray);
+  font-variant-numeric: tabular-nums;
+  padding-top: 3px;
+}
+
+/* Role / company — split into two visual tiers instead of one
+   long "Role at Company" sentence: role reads as the headline,
+   company as a smaller, accent-colored line right beneath it. */
+.resume-exp-row .exp-role {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 16.5px;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+
+.resume-exp-row .exp-company {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+
+.resume-exp-row .exp-company-desc {
+  font-size: 13.5px;
+  color: var(--gray);
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+
+.resume-exp-row .exp-role-desc {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.75;
+}
+
+@media (max-width: 600px) {
+  .resume-exp-row { grid-template-columns: 1fr; gap: 6px; }
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 40px;
+}
+
+.skill-block .skill-cat {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gray-light);
+  margin-bottom: 8px;
+}
+
+.skill-block .skill-items {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+  .skills-grid { grid-template-columns: 1fr; }
+}
+
+/* Languages — each one is its own small card (name + level),
+   so English/Spanish/Korean are each highlighted as separate,
+   equal, complete units rather than sharing one "all native"
+   line. */
+.languages-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.lang-chip {
+  background: var(--surface);
+  border-radius: var(--r-md);
+  padding: 14px 22px;
+  box-shadow: var(--shadow-xs);
+  min-width: 108px;
+}
+
+.lang-chip .lang-name {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14.5px;
+  color: var(--ink);
+}
+
+.lang-chip .lang-level {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gray-light);
+  margin-top: 4px;
+}
+
+/* ============================================================
+   MORE ABOUT ME — two columns: a varied photo/video masonry on
+   the left, text modules on the right. Card sizes and media type
+   (photo vs video) are chosen per-card, not locked to a grid.
+   ============================================================ */
+
+.more-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 4vw, 56px);
+  align-items: start;
+}
+
+.more-image-grid {
+  columns: 2;
+  column-gap: 14px;
+}
+
+.more-card {
+  break-inside: avoid;
+  margin-bottom: 14px;
+  padding: 8px;
+  border-radius: var(--r-md);
+  background: var(--surface);
+  box-shadow: var(--shadow-xs);
+  position: relative;
+}
+
+.more-card img,
+.more-card video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: calc(var(--r-md) - 8px);
+}
+
+.more-card .placeholder-mark {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gray-light);
+}
+
+.more-text {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.more-text-block h4 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ink);
+  margin: 0 0 8px;
+  letter-spacing: -0.005em;
+}
+
+.more-text-block p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 760px) {
+  .more-columns { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.site-footer {
+  margin-top: 120px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 12.5px;
+  color: var(--gray-light);
+}
+.site-footer a { color: var(--gray); }
+.site-footer a:hover { color: var(--accent); }

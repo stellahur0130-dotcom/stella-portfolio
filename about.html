@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Stella Hur</title>
+<meta name="description" content="Stella Hur — B2B Marketing Specialist.">
+<link rel="stylesheet" href="css/style.css">
+<!--
+  FONTS: Montserrat (name / tagline / primary nav) and Poppins
+  (everything else — body copy, project titles, secondary nav,
+  buttons). Both are free, loaded via Google Fonts in style.css —
+  no license needed. See the top of style.css for the full note.
+-->
+</head>
+<body>
+  <div class="page">
+    <div class="content-max">
+      <header class="hero">
+      <h1 class="hero-name">Jeongwoo<br>Stella<br>Hur</h1>
+      <div class="hero-portrait-wrap">
+        <div class="hero-portrait">
+          <img src="assets/images/portrait.jpg" alt="Portrait of Stella Hur">
+        </div>
+      </div>
+      <div class="hero-tagline">
+        <p>Technical products. Creative marketing.<br>Everything in between.</p>
+      </div>
+    </header>
+      <nav class="nav-primary">
+      <a class="" href="index.html">Work</a><a class="active" href="about.html">About</a><a class="" href="resume.html">Resume</a><a class="" href="more.html">More About Me :)</a>
+    </nav>
+      <!--
+        Everything below is the region the client-side router
+        swaps in place (see js/main.js) so switching between Work /
+        About / Resume / More About Me feels like an iOS tab switch
+        instead of a full page reload — hero + primary nav never
+        remount. Each file is still a complete, valid standalone
+        page for direct loads, no-JS, and SEO.
+      -->
+      <div id="app-content" data-page="about.html">
+        
+        <div class="content-panel">
+      <div class="about-eyebrow">About</div>
+      <p class="about-lede">I'm a B2B marketer who likes to make technical products easier to understand — and harder to ignore!</p>
+      <div class="about-body">
+        <p>My background is in technical industries, from semiconductors to electric powertrains, where I've learned how to dig into complex technology, understand what makes them different, and turn that into marketing that's clear, engaging, and compelling.</p>
+        <p>My work spans product launches, technical content, media campaigns, graphic design, video, websites, and trade shows. I especially enjoy the space between technical and creative: understanding how something works, figuring out what actually matters to the audience, and finding the best way to tell that story.</p>
+        <p>I also love being hands-on. Whether that means building a new webpage, designing a brochure, filming in the field, or figuring out how to position a new product, I like taking ideas all the way from “we should do this” to actually bringing them to life.</p>
+        <div class="about-image"><img src="assets/images/about/about-image.jpg" alt="About Stella Hur" loading="lazy"></div>
+      </div>
+    </div>
+        <footer class="site-footer">
+      <span>&copy; 2026 Stella Hur</span>
+      <span><a href="mailto:stellahur0130@gmail.com">stellahur0130@gmail.com</a> &nbsp;&middot;&nbsp; <a href="https://linkedin.com/in/jeongwoo-stella-hur" target="_blank" rel="noopener">LinkedIn</a></span>
+    </footer>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
