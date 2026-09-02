@@ -200,11 +200,54 @@ ABOUT_PARAGRAPHS = [
     "I also love being hands-on. Whether that means building a new webpage, designing a brochure, filming in the field, or figuring out how to position a new product, I like taking ideas all the way from \u201cwe should do this\u201d to actually bringing them to life.",
 ]
 
+# Recommendations shown as quote cards between the About text and photo.
+RECOMMENDATIONS = [
+    {
+        "name": "Jae H Park",
+        "role": "Marketing Executive",
+        "linkedin": "https://www.linkedin.com/in/jaepark711/",
+        "paragraphs": [
+            "I cannot speak highly enough of Stella for her marketing communications skills, exceptional creativity, and work ethic. She consistently impresses with her imagination, dedication, and \u201ccan-do\u201d attitude.",
+            "Stella has an amazing ability to create storyboards and visual concepts that truly connect with audiences. Whether she's designing graphics, managing projects big or small, or running marketing campaigns, she manages everything with ease and a great attitude. Her creative process is both strategic and flexible, making sure every project is executed perfectly.",
+            "One of Stella's standout qualities is her ability to approach any challenge with confidence and determination. When faced with something new, she proactively seeks solutions and quickly learns how to do it, always delivering quality work on time. Her positive, can-do attitude makes her a pleasure to work with and contributes to the success of every team she's part of.",
+            "Stella is the perfect Marcom Specialist who consistently goes above and beyond with her creative designs, sharp attention to detail, and strong organizational skills. She's a real asset to any team, and I highly recommend her to any company looking for a talented, resourceful, and creative marketing communications pro!",
+        ],
+    },
+    {
+        "name": "Hakan Cervell",
+        "role": "President, Ericsson Saudi Arabia (formerly Ericsson Korea)",
+        "linkedin": "https://www.linkedin.com/in/hakan-cervell-b1a6b1/",
+        "paragraphs": [
+            "Stella did an outstanding job in Marketing and Communications, and she really proved it is possible to contribute to a company in a great way also as an intern. With her impressive integrity, mindset and strong willingness to learn, she was able to contribute to a number of important company events, both internal and external. I would recommend her 7 days a week and I hope she will come back to our company and take a permanent role later. As an intern, she was really an asset to us.",
+            "It is always great to see young talents seeing the opportunity and perform on a high level in new environments.",
+        ],
+    },
+]
+
+
+def quote_card_html(rec):
+    paras = "\n              ".join(f"<p>{p}</p>" for p in rec["paragraphs"])
+    return f'''<div class="quote-card">
+            <blockquote class="quote-text">
+              {paras}
+            </blockquote>
+            <div class="quote-attribution">
+              <span class="quote-name"><a href="{rec['linkedin']}" target="_blank" rel="noopener">{rec['name']}</a></span>
+              <span class="quote-role">{rec['role']}</span>
+            </div>
+          </div>'''
+
+
+about_quotes_html = '''<div class="about-quotes">
+          ''' + "\n          ".join(quote_card_html(r) for r in RECOMMENDATIONS) + '''
+        </div>'''
+
 about_body = '''<div class="content-panel">
       <div class="about-eyebrow">About</div>
       <p class="about-lede">''' + ABOUT_LEDE + '''</p>
       <div class="about-body">
         ''' + "\n        ".join(f"<p>{p}</p>" for p in ABOUT_PARAGRAPHS) + '''
+        ''' + about_quotes_html + '''
         <div class="about-image"><img src="assets/images/about/about-image.jpg" alt="About Stella Hur" loading="lazy"></div>
       </div>
     </div>'''
