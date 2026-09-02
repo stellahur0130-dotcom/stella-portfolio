@@ -844,6 +844,10 @@ button { font-family: var(--font-body); }
   color: var(--ink-soft);
 }
 
+.more-text-block p + p {
+  margin-top: 12px;
+}
+
 @media (max-width: 760px) {
   .more-columns { grid-template-columns: 1fr; }
 }
