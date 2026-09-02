@@ -194,9 +194,10 @@ button { font-family: var(--font-body); }
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
     row-gap: 24px;
+    margin-bottom: 48px;
   }
   .hero-name { grid-column: 1; grid-row: 1; }
-  .hero-portrait-wrap { grid-column: 1; grid-row: 2; justify-self: start; width: 160px; }
+  .hero-portrait-wrap { grid-column: 1; grid-row: 2; justify-self: start; width: 160px; margin-top: 20px; }
   .hero-tagline { grid-column: 1; grid-row: 3; margin-top: 0; }
 }
 
