@@ -848,6 +848,15 @@ button { font-family: var(--font-body); }
   margin-top: 12px;
 }
 
+.more-text-block p a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.more-text-block p a:hover {
+  color: var(--accent);
+}
+
 @media (max-width: 760px) {
   .more-columns { grid-template-columns: 1fr; }
 }
