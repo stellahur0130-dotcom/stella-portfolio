@@ -45,10 +45,10 @@ function initSecondaryNav(root) {
     }
   }
 
-      function scrollToNav() {
+   function scrollToNav() {
     const nav = document.querySelector('.nav-primary');
     if (!nav) return;
-    const y = nav.getBoundingClientRect().top + window.scrollY;
+    const y = nav.getBoundingClientRect().top + window.scrollY - 24;
     window.scrollTo({ top: y, behavior: 'instant' });
   }
 
