@@ -45,12 +45,18 @@ function initSecondaryNav(root) {
     }
   }
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => applyFilter(btn.dataset.filter, true));
+    filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      applyFilter(btn.dataset.filter, true);
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    });
   });
 
   overviewCards.forEach(card => {
-    card.addEventListener('click', () => applyFilter(card.dataset.goto, true));
+    card.addEventListener('click', () => {
+      applyFilter(card.dataset.goto, true);
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    });
   });
 
   // Respect an incoming #category-slug (e.g. from a shared link,
