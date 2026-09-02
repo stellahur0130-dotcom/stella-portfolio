@@ -45,17 +45,24 @@ function initSecondaryNav(root) {
     }
   }
 
-    filterBtns.forEach(btn => {
+      function scrollToNav() {
+    const nav = document.querySelector('.nav-primary');
+    if (!nav) return;
+    const y = nav.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top: y, behavior: 'instant' });
+  }
+
+  filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       applyFilter(btn.dataset.filter, true);
-      window.scrollTo({ top: 0, behavior: 'instant' });
+      scrollToNav();
     });
   });
 
   overviewCards.forEach(card => {
     card.addEventListener('click', () => {
       applyFilter(card.dataset.goto, true);
-      window.scrollTo({ top: 0, behavior: 'instant' });
+      scrollToNav();
     });
   });
 
