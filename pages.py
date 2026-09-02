@@ -324,7 +324,7 @@ languages_html = "".join(
 
 resume_body = '''<div class="content-panel resume-panel">
       <div class="resume-toolbar">
-        <a class="resume-download" href="assets/Stella_Hur_Resume.pdf" download>&#8595;&nbsp; Download Resume PDF</a>
+        <a class="resume-download" href="assets/Jeongwoo%20Stella%20Hur%20-%20Resume%202026.pdf" download="Jeongwoo Stella Hur - Resume 2026.pdf">&#8595;&nbsp; Download Resume PDF</a>
       </div>
 
       <div class="section-label">Experience</div>
