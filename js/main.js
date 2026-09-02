@@ -143,3 +143,101 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   initRouter();
 });
+
+function loadYouTubeAPI() {
+  if (document.querySelector('script[src*="youtube.com/iframe_api"]')) return;
+
+  const tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+}
+
+window.onYouTubeIframeAPIReady = function () {
+  initCustomYouTubePlayers();
+};
+
+function initCustomYouTubePlayers() {
+  if (!window.YT || !window.YT.Player) return;
+
+  document.querySelectorAll('.custom-youtube').forEach(wrapper => {
+    if (wrapper.dataset.initialized) return;
+
+    wrapper.dataset.initialized = 'true';
+
+    const playerEl = wrapper.querySelector('.youtube-player');
+    const playButton = wrapper.querySelector('.video-play');
+    const progress = wrapper.querySelector('.video-progress');
+    const fullscreenButton = wrapper.querySelector('.video-fullscreen');
+
+    const videoId = wrapper.dataset.videoId;
+
+    let player;
+
+    player = new YT.Player(playerEl, {
+      videoId: videoId,
+
+      playerVars: {
+        controls: 0,
+        rel: 0,
+        playsinline: 1,
+        fs: 0,
+        disablekb: 1,
+        modestbranding: 1
+      },
+
+      events: {
+        onReady: function () {
+          setInterval(() => {
+            const duration = player.getDuration();
+
+            if (duration > 0 && document.activeElement !== progress) {
+              progress.value =
+                (player.getCurrentTime() / duration) * 100;
+            }
+          }, 250);
+        },
+
+        onStateChange: function (event) {
+          if (event.data === YT.PlayerState.PLAYING) {
+            playButton.textContent = '❚❚';
+          } else {
+            playButton.textContent = '▶';
+          }
+        }
+      }
+    });
+
+    playButton.addEventListener('click', function () {
+      const state = player.getPlayerState();
+
+      if (state === YT.PlayerState.PLAYING) {
+        player.pauseVideo();
+      } else {
+        player.playVideo();
+      }
+    });
+
+    progress.addEventListener('input', function () {
+      const duration = player.getDuration();
+
+      if (duration > 0) {
+        player.seekTo(
+          duration * (progress.value / 100),
+          true
+        );
+      }
+    });
+
+    fullscreenButton.addEventListener('click', function () {
+      const iframe = wrapper.querySelector('iframe');
+
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.webkitRequestFullscreen) {
+        iframe.webkitRequestFullscreen();
+      }
+    });
+  });
+}
+
+loadYouTubeAPI();
