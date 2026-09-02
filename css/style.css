@@ -647,6 +647,12 @@ button { font-family: var(--font-body); }
   justify-content: flex-end;
 }
 
+@media (max-width: 480px) {
+  .resume-toolbar {
+    justify-content: center;
+  }
+}
+
 .resume-download {
   display: inline-flex;
   align-items: center;
