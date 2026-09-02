@@ -860,6 +860,8 @@ button { font-family: var(--font-body); }
   text-transform: uppercase;
   color: var(--gray-light);
   margin: 4px 0 12px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
 }
 
 .about-quotes {
