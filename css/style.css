@@ -346,6 +346,7 @@ button { font-family: var(--font-body); }
 
 .overview-thumb {
   width: 100%;
+  aspect-ratio: 4 / 3;
   padding: 8px;
   border-radius: var(--r-md);
   background: var(--surface);
@@ -356,8 +357,8 @@ button { font-family: var(--font-body); }
 .overview-thumb img {
   display: block;
   width: 100%;
-  height: auto;
-  max-height: 340px;
+  height: 100%;
+  object-fit: cover;
   border-radius: calc(var(--r-md) - 8px);
 }
 
