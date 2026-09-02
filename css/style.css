@@ -176,7 +176,7 @@ button { font-family: var(--font-body); }
   position: relative;
   z-index: 1;
   background: var(--surface);
-  padding: 8px;
+  padding: 0;
   border-radius: var(--r-md);
   box-shadow: var(--shadow-md);
 }
@@ -186,7 +186,7 @@ button { font-family: var(--font-body); }
   width: 100%;
   height: auto;
   max-height: 440px;
-  border-radius: calc(var(--r-md) - 8px);
+  border-radius: var(--r-md);
 }
 
 @media (max-width: 760px) {
